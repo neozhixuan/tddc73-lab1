@@ -1,5 +1,6 @@
 package com.neozhixuan.tddc73_lab1
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.*
@@ -7,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.tooling.preview.Preview
@@ -17,7 +19,7 @@ fun ExampleScreen() {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Example 1") },
+                title = { Text(text = "Example 1 - Kotlin Compose") },
                 colors = TopAppBarDefaults.smallTopAppBarColors(MaterialTheme.colorScheme.primaryContainer))
         }
     ) { paddingValues ->
@@ -36,7 +38,11 @@ fun ExampleScreen() {
                 shape = CircleShape,
                 color = Color.LightGray // Replace with your desired background color
             ) {
-                // Image or graphic can go here
+                Image(
+                    painter = painterResource(id = R.drawable.wheel), // Replace with your image name
+                    contentDescription = "Circular Image",
+                    modifier = Modifier.size(150.dp) // Adjust size if needed
+                )
             }
 
             // Buttons arranged in a grid layout
@@ -70,9 +76,10 @@ fun ExampleScreen() {
             // Email input field with label
             Row(
                 modifier = Modifier.fillMaxWidth(0.9f),
-//                horizontalAlignment = Alignment.Start
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 Text("Email")
+                Spacer(modifier = Modifier.width(15.dp))
                 OutlinedTextField(
                     value = TextFieldValue(""),
                     onValueChange = {},

@@ -1,5 +1,7 @@
 package com.neozhixuan.tddc73_lab1
 
+// `material3` library
+// Modifiers provide different paddings and gaps
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -13,9 +15,12 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.tooling.preview.Preview
 
+// `material3` is an experimental API
 @OptIn(ExperimentalMaterial3Api::class)
+// @composable defines this component as part of the UI
 @Composable
 fun ExampleScreen() {
+    // Scaffold is the layout with top bar
     Scaffold(
         topBar = {
             TopAppBar(
@@ -23,7 +28,10 @@ fun ExampleScreen() {
                 colors = TopAppBarDefaults.smallTopAppBarColors(MaterialTheme.colorScheme.primaryContainer))
         }
     ) { paddingValues ->
+        // Vertical stack
         Column(
+            // Column fill the entire screen
+            // Use padding provided by the Scaffold
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues),
@@ -38,6 +46,7 @@ fun ExampleScreen() {
                 shape = CircleShape,
                 color = Color.LightGray // Replace with your desired background color
             ) {
+                // xDisplays an image (R.drawable.wheel) loaded as a drawable resource
                 Image(
                     painter = painterResource(id = R.drawable.wheel), // Replace with your image name
                     contentDescription = "Circular Image",
